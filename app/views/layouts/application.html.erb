@@ -9,6 +9,10 @@
   </head>
 
   <body>
-    <%= yield %>
+  	<% if user_signed_in? %>
+    	<%= yield %>
+    <% else %>
+			<%= link_to 'Log in', new_user_session_path, method: 'GET' %>
+    <% end %>
   </body>
 </html>

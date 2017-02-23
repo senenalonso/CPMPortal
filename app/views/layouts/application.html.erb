@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CPMPortal</title>
+	<title>:: OCTA Portal ::</title>
 	<%= csrf_meta_tags %>
 
 	<%= stylesheet_link_tag    'application', media: 'all' %>
@@ -9,26 +9,90 @@
 </head>
 
 <body>
-	<% if notice %>
-	<p class="alert alert-success"><%= notice %></p>
-	<% end %>
-	<% if alert %>
-	<p class="alert alert-danger"><%= alert %></p>
-	<% end %>
 
 
+	<div id="wrapper">
 
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+		<!-- Navigation -->
+		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">OCTA - Performance Management Portal</a>
+			</div>
+			<!-- /.navbar-header -->
 
-  <%= yield %>
+			<ul class="nav navbar-top-links navbar-right">
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+					</a>
+					<ul class="dropdown-menu dropdown-user">
+						<li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+						</li>
+						<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+						</li>
+						<li class="divider"></li>
+						<li><i class="fa fa-sign-out fa-fw"><%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %></i>
+						</li>
+					</ul>
+					<!-- /.dropdown-user -->
+				</li>
+				<!-- /.dropdown -->
+			</ul>
+			<!-- /.navbar-top-links -->
 
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-
+			<div class="navbar-default sidebar" role="navigation">
+				<div class="sidebar-nav navbar-collapse">
+					<ul class="nav" id="side-menu">
+						<li>
+							<a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-paperclip fa-fw"></i> Proyectos<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li>
+									<a href="flot.html">Abiertos</a>
+								</li>
+								<li>
+									<a href="morris.html">Cerrados</a>
+								</li>
+							</ul>
+							<!-- /.nav-second-level -->
+						</li>
+						<li>
+							<a href="tables.html"><i class="fa fa-table fa-fw"></i> Componentes</a>
+						</li>
+						<li>
+							<a href="forms.html"><i class="fa fa-list-ol fa-fw"></i> Recomendaciones<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li>
+									<a href="panels-wells.html">Emitidas</a>
+								</li>
+								<li>
+									<a href="#">Pendientes <span class="fa arrow"></span></a>
+									<ul class="nav nav-third-level">
+										<li>
+											<a href="#">De implantar</a>
+										</li>
+										<li>
+											<a href="#">De medir mejoras</a>
+										</li>
+									</ul>
+									<!-- /.nav-third-level -->
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-file fa-fw"></i> Informes</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.sidebar-collapse -->
+			</div>
+			<!-- /.navbar-static-side -->
+		</nav>
+	</div>
+	<div id="page-wrapper">
+			<%= yield %>
+	</div>
 </body>
 </html>

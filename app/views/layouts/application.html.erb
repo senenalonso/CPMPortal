@@ -31,7 +31,7 @@
 						<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
 						</li>
 						<li class="divider"></li>
-						<li><i class="fa fa-sign-out fa-fw"><%= link_to 'Logout', destroy_user_session_path, method: 'DELETE' %></i>
+						<li><%= link_to ' Logout', destroy_user_session_path, method: 'DELETE', class: 'fa fa-sign-out fa-fw' %>
 						</li>
 					</ul>
 					<!-- /.dropdown-user -->
@@ -44,16 +44,16 @@
 				<div class="sidebar-nav navbar-collapse">
 					<ul class="nav" id="side-menu">
 						<li>
-							<a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+							<a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
 						</li>
 						<li>
 							<a href="#"><i class="fa fa-paperclip fa-fw"></i> Proyectos<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
 								<li>
-									<a href="flot.html">Abiertos</a>
+									<a href="/projects/new">Nuevo</a>
 								</li>
 								<li>
-									<a href="morris.html">Cerrados</a>
+									<a href="morris.html">Búsqueda</a>
 								</li>
 							</ul>
 							<!-- /.nav-second-level -->
@@ -68,7 +68,7 @@
 									<a href="panels-wells.html">Emitidas</a>
 								</li>
 								<li>
-									<a href="#">Pendientes <span class="fa arrow"></span></a>
+									<a href="#">Pendientes</a>
 									<ul class="nav nav-third-level">
 										<li>
 											<a href="#">De implantar</a>

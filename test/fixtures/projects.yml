@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  name: MyString
+  description: MyText
+  result: MyText
+  date_requested: 2017-02-25
+  date_start: 2017-02-25
+  date_finish: 2017-02-25
+  scope: MyString
+  type: 
+  priority: 1
+
+two:
+  code: MyString
+  name: MyString
+  description: MyText
+  result: MyText
+  date_requested: 2017-02-25
+  date_start: 2017-02-25
+  date_finish: 2017-02-25
+  scope: MyString
+  type: 
+  priority: 1

@@ -1,0 +1,62 @@
+<%= form_for(project) do |f| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :result %>
+    <%= f.text_area :result %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_requested %>
+    <%= f.date_select :date_requested %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_start %>
+    <%= f.date_select :date_start, include_blank: :true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_finish %>
+    <%= f.date_select :date_finish, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :scope %>
+    <%= f.select :scope, "<option>Sistemas Distribuidos</option><option>Mainframe</option><option>Mixto</option>".html_safe, :prompt => "Seleccionar..." %>
+  </div>
+
+  <div class="field">
+    <%= f.label :action %>
+    <%= f.select :action, "<option>Prueba de rendimiento</option><option>Optimización</option>".html_safe, :prompt => "Seleccionar..." %>
+  </div>
+
+  <div class="field">
+    <%= f.label :priority %>
+    <%= f.number_field :priority, value: 1, in: 1..3 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  resources :projects
   
-	root to: "site#index"
+	root to: "site#home"
 	
-	get 	'/',					to: 'site#index',	as: :home 
+	get 	'/',					to: 'site#home',	as: :home 
 	
 end

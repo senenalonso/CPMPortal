@@ -17,7 +17,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create project" do
     assert_difference('Project.count') do
-      post projects_url, params: { project: { code: @project.code, date_finish: @project.date_finish, date_requested: @project.date_requested, date_start: @project.date_start, description: @project.description, name: @project.name, priority: @project.priority, result: @project.result, scope: @project.scope, action: @project.action } }
+      post projects_url, params: { project: { code: @project.code, date_finish: @project.date_finish, date_requested: @project.date_requested, date_start: @project.date_start, description: @project.description, name: @project.name, priority: @project.priority, result: @project.result, scope: @project.scope, category: @project.category } }
     end
 
     assert_redirected_to project_url(Project.last)
@@ -34,7 +34,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update project" do
-    patch project_url(@project), params: { project: { code: @project.code, date_finish: @project.date_finish, date_requested: @project.date_requested, date_start: @project.date_start, description: @project.description, name: @project.name, priority: @project.priority, result: @project.result, scope: @project.scope, action: @project.action } }
+    patch project_url(@project), params: { project: { code: @project.code, date_finish: @project.date_finish, date_requested: @project.date_requested, date_start: @project.date_start, description: @project.description, name: @project.name, priority: @project.priority, result: @project.result, scope: @project.scope, category: @project.category } }
     assert_redirected_to project_url(@project)
   end
 

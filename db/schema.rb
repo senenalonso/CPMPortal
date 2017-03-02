@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170225140108) do
     t.date     "date_start"
     t.date     "date_finish"
     t.string   "scope",                                   null: false
-    t.string   "action",                                  null: false
+    t.string   "category",                                  null: false
     t.integer  "priority"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false

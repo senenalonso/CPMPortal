@@ -3,3 +3,36 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+.panel-heading a {
+	color: white;
+}
+
+.panel-heading{
+	.panel-title a{
+		color: #333;
+	}
+}
+
+.panel-opt {
+	background-color: #5cb85c;
+	color: white;
+
+	.panel-body {
+		background-color: white;
+		color: #333;
+	}
+}
+
+.panel-history {
+	background-color: #f0ad4e;
+	color: white;
+
+	.panel-body {
+		background-color: white;
+		color: #333;
+	}
+}
+.inline-h4 {
+	display: inline-block;
+}

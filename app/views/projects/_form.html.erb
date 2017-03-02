@@ -10,53 +10,116 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="code">Código:</label>  
+        <div class="col-md-6">
+          <%= f.text_field :code, placeholder: 'Código', class: 'form-control input-md', required: true %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="code">Nombre:</label>  
+        <div class="col-md-6">
+          <%= f.text_field :name, placeholder: 'Nombre del proyecto', class: 'form-control input-md', required: true %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :result %>
-    <%= f.text_area :result %>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="description">Descripción:</label>
+        <div class="col-md-6">
+          <%= f.text_area :description, class: 'form-control' %>                     
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :date_requested %>
-    <%= f.date_select :date_requested %>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="code">Prioridad:</label>  
+        <div class="col-md-6">
+          <%= f.number_field :priority, value: 1, in: 1..3 %>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="result">Resultado:</label>
+        <div class="col-md-6">
+          <%= f.select :result,
+          "<option>Aceptado</option><option>Aceptado con riesgo</option><option>Rechazado</option><option>No aplica</option>".html_safe, 
+          {:prompt => "Seleccionar..."}, {:class => 'form-control'} %>
 
-  <div class="field">
-    <%= f.label :date_start %>
-    <%= f.date_select :date_start, include_blank: :true %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :date_finish %>
-    <%= f.date_select :date_finish, include_blank: true %>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="description">Fecha de petición:</label>
+        <div class="col-md-6">
+          <%= f.date_select :date_requested, {}, {:class => "form-control"} %>             
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :scope %>
-    <%= f.select :scope, "<option>Sistemas Distribuidos</option><option>Mainframe</option><option>Mixto</option>".html_safe, :prompt => "Seleccionar..." %>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="description">Fecha de inicio:</label>
+        <div class="col-md-6">
+          <%= f.date_select :date_start, class: 'form-control' %>                     
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :action %>
-    <%= f.select :action, "<option>Prueba de rendimiento</option><option>Optimización</option>".html_safe, :prompt => "Seleccionar..." %>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="description">Fecha de cierre:</label>
+        <div class="col-md-6">
+          <%= f.date_select :date_finish, class: 'form-control' %>                     
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :priority %>
-    <%= f.number_field :priority, value: 1, in: 1..3 %>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="result">Ámbito:</label>
+        <div class="col-md-6">
+          <%= f.select :scope, 
+          "<option>Sistemas Distribuidos</option><option>Mainframe</option><option>Mixto</option>".html_safe, 
+          {:prompt => "Seleccionar..."}, {:class => 'form-control'} %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="result">Categoría:</label>
+        <div class="col-md-6">
+          <%= f.select :category, 
+          "<option>Prueba de rendimiento</option><option>Optimización</option>".html_safe, 
+          {:prompt => "Seleccionar..."}, {:class => 'form-control'} %>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="col-md-2 col-md-offset-3">
+    <%= f.submit "Crear proyecto", class: 'btn btn-lg btn-success btn-block'  %>
+  </div>
+</div>
 <% end %>

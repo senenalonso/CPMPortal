@@ -58,7 +58,7 @@
         <div class="col-md-6">
           <%= f.select :result,
           "<option>Aceptado</option><option>Aceptado con riesgo</option><option>Rechazado</option><option>No aplica</option>".html_safe, 
-          {:prompt => "Seleccionar..."}, {:class => 'form-control'} %>
+          {include_blank: "Seleccionar..."}, {class: 'form-control'} %>
 
         </div>
       </div>
@@ -69,7 +69,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label" for="description">Fecha de petición:</label>
         <div class="col-md-6">
-          <%= f.date_select :date_requested, {}, {:class => "form-control"} %>             
+          <%= f.date_select :date_requested, {order: [:day,:month,:year]}, {:class => "form-control date-select"} %>             
         </div>
       </div>
     </div>
@@ -79,7 +79,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label" for="description">Fecha de inicio:</label>
         <div class="col-md-6">
-          <%= f.date_select :date_start, class: 'form-control' %>                     
+          <%= f.date_select :date_start, {include_blank:"" ,order: [:day,:month,:year]}, {:class => "form-control date-select"} %>         
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label" for="description">Fecha de cierre:</label>
         <div class="col-md-6">
-          <%= f.date_select :date_finish, class: 'form-control' %>                     
+          <%= f.date_select :date_finish, {include_blank:"" ,order: [:day,:month,:year]}, {:class => "form-control date-select"} %>         
         </div>
       </div>
     </div>

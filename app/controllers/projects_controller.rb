@@ -19,6 +19,8 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    session[:project_id] = params[:projects]
+    @components = @project.components
   end
 
   # POST /projects

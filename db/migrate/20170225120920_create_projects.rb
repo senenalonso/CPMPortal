@@ -5,9 +5,9 @@ class CreateProjects < ActiveRecord::Migration[5.0]
       t.string :name,   null: false
       t.text :description
       t.text :result
-      t.date :date_requested,   null: false
-      t.date :date_start
-      t.date :date_finish
+      t.string :date_requested,   null: false
+      t.string :date_start
+      t.string :date_finish
       t.string :scope,   null: false
       t.string :category,   null: false
       t.integer :priority

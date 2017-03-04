@@ -22,7 +22,7 @@ def populate
 																 description: "Lorem Ipsum es simplemente el texto de relleno de las imprentas 
 																 y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las 
 																 industrias desde el año 1500",
-																 date_requested: Date.today - (5*index2).day,
+																 date_requested: Date.parse((Date.today - (5*index2).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
 																 scope: "Distribuido",
 																 category: "Prueba",
 																 status: "En curso"
@@ -30,7 +30,7 @@ def populate
 
 			project_opt = user.projects.create(code: get_code,
 																 name: "Proyecto Optimización #{index}#{index2}",
-																 date_requested: Date.today - (3*index2).day,
+																 date_requested: Date.parse((Date.today - (3*index2).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
 																 description: "Lorem Ipsum es simplemente el texto de relleno de las imprentas 
 																 y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las 
 																 industrias desde el año 1500",
@@ -52,7 +52,7 @@ def populate
 	10.times do |index|
 		Project.create!(code: get_code,
 																 name: "LIBRE Proyecto Pruebas #{index}",
-																 date_requested: Date.today - (5*index).day,
+																 date_requested: Date.parse((Date.today - (5*index).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
 																 description: "Lorem Ipsum es simplemente el texto de relleno de las imprentas 
 																 y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las 
 																 industrias desde el año 1500",
@@ -64,7 +64,7 @@ def populate
 		if index.odd?
 			Project.create!(code: get_code,
 																 name: "LIBRE Proyecto Optimización #{index}",
-																 date_requested: Date.today - (5*index).day,
+																 date_requested: Date.parse((Date.today - (5*index).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
 																 description: "Lorem Ipsum es simplemente el texto de relleno de las imprentas 
 																 y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las 
 																 industrias desde el año 1500",

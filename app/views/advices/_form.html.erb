@@ -1,0 +1,87 @@
+<%= form_for(advice) do |f| %>
+  <% if advice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(advice.errors.count, "error") %> prohibited this advice from being saved:</h2>
+
+      <ul>
+      <% advice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :problem %>
+    <%= f.text_area :problem %>
+  </div>
+
+  <div class="field">
+    <%= f.label :explanation %>
+    <%= f.text_area :explanation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :before %>
+    <%= f.text_area :before %>
+  </div>
+
+  <div class="field">
+    <%= f.label :after %>
+    <%= f.text_field :after %>
+  </div>
+
+  <div class="field">
+    <%= f.label :improvement1 %>
+    <%= f.number_field :improvement1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :unit1 %>
+    <%= f.text_field :unit1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :metric1 %>
+    <%= f.text_field :metric1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :improvement2 %>
+    <%= f.number_field :improvement2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :unit2 %>
+    <%= f.text_field :unit2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :metric2 %>
+    <%= f.text_field :metric2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :improvement3 %>
+    <%= f.number_field :improvement3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :unit3 %>
+    <%= f.text_field :unit3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :metric3 %>
+    <%= f.text_field :metric3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :component_id %>
+    <%= f.text_field :component_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

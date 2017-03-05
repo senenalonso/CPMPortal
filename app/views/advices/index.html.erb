@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Advices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Problem</th>
+      <th>Explanation</th>
+      <th>Before</th>
+      <th>After</th>
+      <th>Improvement1</th>
+      <th>Unit1</th>
+      <th>Metric1</th>
+      <th>Improvement2</th>
+      <th>Unit2</th>
+      <th>Metric2</th>
+      <th>Improvement3</th>
+      <th>Unit3</th>
+      <th>Metric3</th>
+      <th>Component</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @advices.each do |advice| %>
+      <tr>
+        <td><%= advice.problem %></td>
+        <td><%= advice.explanation %></td>
+        <td><%= advice.before %></td>
+        <td><%= advice.after %></td>
+        <td><%= advice.improvement1 %></td>
+        <td><%= advice.unit1 %></td>
+        <td><%= advice.metric1 %></td>
+        <td><%= advice.improvement2 %></td>
+        <td><%= advice.unit2 %></td>
+        <td><%= advice.metric2 %></td>
+        <td><%= advice.improvement3 %></td>
+        <td><%= advice.unit3 %></td>
+        <td><%= advice.metric3 %></td>
+        <td><%= advice.component %></td>
+        <td><%= link_to 'Show', advice %></td>
+        <td><%= link_to 'Edit', edit_advice_path(advice) %></td>
+        <td><%= link_to 'Destroy', advice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Advice', new_advice_path %>

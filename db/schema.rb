@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304130023) do
+ActiveRecord::Schema.define(version: 20170305235613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "advices", force: :cascade do |t|
+    t.text     "problem"
+    t.text     "explanation"
+    t.text     "before"
+    t.text     "after"
+    t.integer  "improvement1"
+    t.string   "unit1"
+    t.string   "metric1"
+    t.integer  "improvement2"
+    t.string   "unit2"
+    t.string   "metric2"
+    t.integer  "improvement3"
+    t.string   "unit3"
+    t.string   "metric3"
+    t.integer  "component_id"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "status",       default: "En desarrollo"
+    t.index ["component_id"], name: "index_advices_on_component_id", using: :btree
+  end
 
   create_table "components", force: :cascade do |t|
     t.string   "name"
@@ -59,5 +80,6 @@ ActiveRecord::Schema.define(version: 20170304130023) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "advices", "components"
   add_foreign_key "components", "projects"
 end

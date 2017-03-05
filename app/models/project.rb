@@ -10,19 +10,19 @@ class Project < ApplicationRecord
 
 		user_projects	= user.projects
 
-		conters = user_projects.group([:status, :category]).count
+		counters = user_projects.group([:status, :category]).count
 
 		old, test, opt = 0, 0 ,0
 
 		tests,opts = [], []
 
-		conters.keys.each do |k| 
+		counters.keys.each do |k| 
 			if k.include? "Cerrado"
-				old += conters[k]
+				old += counters[k]
 			elsif k.include? "Prueba"
-				test += conters[k]
+				test += counters[k]
 			else k.include? "Optimización"
-				opt += conters[k]
+				opt += counters[k]
 			end
 		end
 
@@ -30,11 +30,11 @@ class Project < ApplicationRecord
 		opts = user_projects.all.select {|p| !p.status.include? "Cerrado" }.select {|p| p.category.include? "Optimización"}
 
 =begin
-		old = conters.keys.select {|k| k.include? "Cerrado" }.map { |k| conters[k] }.sum
+		old = counters.keys.select {|k| k.include? "Cerrado" }.map { |k| counters[k] }.sum
 
-		test = conters.keys.select {|k| !k.include? "Cerrado" }.select {|k| k.include? "Prueba"}.map { |k| conters[k] }.sum
+		test = counters.keys.select {|k| !k.include? "Cerrado" }.select {|k| k.include? "Prueba"}.map { |k| counters[k] }.sum
 
-		opt = conters.keys.select {|k| !k.include? "Cerrado" }.select {|k| k.include? "Optimización" }.map { |k| conters[k] }.sum
+		opt = counters.keys.select {|k| !k.include? "Cerrado" }.select {|k| k.include? "Optimización" }.map { |k| counters[k] }.sum
 =end
 		free = Project.where(status:"Sin asignar")
 

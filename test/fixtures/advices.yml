@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  problem: MyText
+  explanation: MyText
+  before: MyText
+  after: 
+  improvement1: 1
+  unit1: MyString
+  metric1: MyString
+  improvement2: 1
+  unit2: MyString
+  metric2: MyString
+  improvement3: 1
+  unit3: MyString
+  metric3: MyString
+  component: one
+
+two:
+  problem: MyText
+  explanation: MyText
+  before: MyText
+  after: 
+  improvement1: 1
+  unit1: MyString
+  metric1: MyString
+  improvement2: 1
+  unit2: MyString
+  metric2: MyString
+  improvement3: 1
+  unit3: MyString
+  metric3: MyString
+  component: two

@@ -26,13 +26,14 @@ class ComponentsController < ApplicationController
   # POST /components.json
   def create
     @component = Component.new(component_params)
+    project = Project.find(session[:project_id])
 
     respond_to do |format|
       if @component.save
-        format.html { redirect_to @component, notice: 'Component was successfully created.' }
+        format.html { redirect_to edit_project_path(project), notice: 'Component was successfully created.' }
         format.json { render :show, status: :created, location: @component }
       else
-        format.html { render :new }
+        format.html { redirect_to edit_project_path(project), notice: 'Error!!' }
         format.json { render json: @component.errors, status: :unprocessable_entity }
       end
     end

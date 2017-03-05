@@ -14,13 +14,14 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = Project.new
+    @project = Project.new    
   end
 
   # GET /projects/1/edit
   def edit
-    session[:project_id] = params[:projects]
-    @components = @project.components
+    session[:project_id] = params[:id]
+    @components = @project.components    
+    @component = Component.new
   end
 
   # POST /projects

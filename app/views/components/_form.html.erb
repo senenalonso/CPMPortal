@@ -10,17 +10,17 @@
       </ul>
     </div>
   <% end %>
-<%=f.hidden_field :project_id, value: 1%>
+<%=f.hidden_field :project_id, value: session[:project_id]%>
 <div class="container">
   <div class="row">
-    <div class="col-md-11 col-pad-bot-5">
+    <div class="col-md-12 col-pad-bot-5 pad-top-10">
       <div class="form-group">
         <label class="col-md-1 control-label" for="code">Nombre:</label>  
         <div class="col-md-5">
           <%= f.text_field :name, placeholder: 'Nombre del componente', class: 'form-control input-md', required: true %>
         </div>
         <label class="col-md-1 control-label" for="category">Categoria:</label>
-        <div class="col-md-5">
+        <div class="col-md-4">
           <%= f.select :category, 
           "<option>Aplicación</option><option>Sentencia SQL</option><option>Procedimiento almacenado</option><option>JCL</option>".html_safe, 
           {:prompt => "Seleccionar..."}, {:class => 'form-control'} %>
@@ -29,16 +29,16 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-10 col-pad-bot-5">
+    <div class="col-md-12 col-pad-bot-5">
       <div class="form-group">
-        <label class="col-md-2 control-label" for="description">Descripción:</label>
+        <label class="col-md-1 control-label" for="description">Descripción:</label>
         <div class="col-md-10">
           <%= f.text_area :description, class: 'form-control', rows: 5  %>                     
         </div>
       </div>
     </div>
   </div>
-  <div class="col-md-3 col-md-offset-3">
+  <div class="col-md-3 col-md-offset-2">
     <%= f.submit "Guardar componente", class: 'btn btn-lg btn-success btn-block'  %>
   </div>
 </div>

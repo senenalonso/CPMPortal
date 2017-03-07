@@ -21,7 +21,8 @@ class ProjectsController < ApplicationController
   def edit
     session[:project_id] = params[:id]
     @components = @project.components    
-    @component = Component.new
+    @component = Component.new  
+    @advice = Advice.new
   end
 
   # POST /projects

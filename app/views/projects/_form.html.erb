@@ -19,7 +19,7 @@
           <%= f.text_field :code, placeholder: 'Código', class: 'form-control input-md', disabled:true, required: true %>
         </div>
         <label class="col-md-1 control-label" for="code">Nombre:</label>  
-        <div class="col-md-5">
+        <div class="col-md-4">
           <%= f.text_field :name, placeholder: 'Nombre del proyecto', class: 'form-control input-md', required: true %>
         </div>
         <label class="col-md-1 control-label" for="code">Prioridad:</label>  
@@ -30,35 +30,35 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-10 col-pad-bot-5">
+    <div class="col-md-11 col-pad-bot-5">
       <div class="form-group">
-        <label class="col-md-2 control-label" for="description">Descripción:</label>
-        <div class="col-md-10">
+        <label class="col-md-1 control-label" for="description">Descripción:</label>
+        <div class="col-md-9">
           <%= f.text_area :description, class: 'form-control', rows: 5  %>                     
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-10 col-pad-bot-5">
+    <div class="col-md-9 col-pad-bot-5">
       <div class="form-group inline-flex">
-        <label class="col-md-2 control-label" for="date_requested">Fecha de petición:</label>
+        <label class="col-md-2 control-label" for="date_requested">F. de petición:</label>
         <div class='input-group date col-md-2' id='datetimepicker1'>        
-          <%= f.text_field :date_requested, class: 'form-control input-md'%>
+          <%= f.text_field :date_requested, class: 'form-control input-sm'%>
           <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
+            <span class="glyphicon glyphicon-calendar fa-1x"></span>
           </span>
         </div>
-        <label class="col-md-2 control-label" for="date_start">Fecha de inicio:</label>
+        <label class="col-md-2 control-label" for="date_start">F. de inicio:</label>
         <div class='input-group date col-md-2' id='datetimepicker2'>
-          <%= f.text_field :date_start, class: 'form-control input-md'%>
+          <%= f.text_field :date_start, class: 'form-control input-sm'%>
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>
         </div>
-        <label class="col-md-2 control-label" for="date_finish">Fecha de fin:</label>
+        <label class="col-md-2 control-label" for="date_finish">F. de fin:</label>
         <div class='input-group date col-md-2' id='datetimepicker3'>
-          <%= f.text_field :date_finish, class: 'form-control input-md'%>
+          <%= f.text_field :date_finish, class: 'form-control input-sm'%>
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
           </span>

@@ -10,78 +10,74 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :problem %>
-    <%= f.text_area :problem %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-11 col-pad-bot-5">
+      <div class="form-group">
+        <label class="col-md-1 control-label" for="problem">Mala práctica:</label>  
+        <div class="col-md-9">
+          <%= f.text_area :problem, class: 'form-control', rows: 3  %>  
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :explanation %>
-    <%= f.text_area :explanation %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-11 col-pad-bot-5">
+      <div class="form-group">
+        <label class="col-md-1 control-label" for="after">Corrección:</label>  
+        <div class="col-md-9">
+          <%= f.text_area :explanation, class: 'form-control', rows: 3  %>  
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :before %>
-    <%= f.text_area :before %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-11 col-pad-bot-5">
+      <div class="form-group">
+        <label class="col-md-1 control-label" for="before">Antes:</label>  
+        <div class="col-md-9">
+          <%= f.text_area :before, class: 'form-control', rows: 3  %>  
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :after %>
-    <%= f.text_field :after %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-11 col-pad-bot-5">
+      <div class="form-group">
+        <label class="col-md-1 control-label" for="after">Después:</label>  
+        <div class="col-md-9">
+          <%= f.text_area :after, class: 'form-control', rows: 3  %>  
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :improvement1 %>
-    <%= f.number_field :improvement1 %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-pad-bot-5">
+      <div class="form-group inline-flex">
+        <label class="col-md-2 control-label" for="metric1">Métrica:</label>
+        <div class="input-group col-md-3">
+          <%= f.text_field :metric1, class: 'form-control input-md'%>                   
+        </div>
+        <label class="col-md-2 control-label" for="improvement1">Mejora:</label>
+        <div class="input-group col-md-3">
+          <%= f.text_field :improvement1, class: 'form-control input-md'%>                   
+        </div>
+        <label class="col-md-2 control-label" for="unit1">Unidad:</label>
+        <div class="input-group col-md-3">        
+          <%= f.select :unit1, 
+          "<option>%</option><option>msg.</option><option>u.c.</option>".html_safe, 
+          {:prompt => "Seleccionar..."}, {:class => 'form-control'} %>               
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :unit1 %>
-    <%= f.text_field :unit1 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :metric1 %>
-    <%= f.text_field :metric1 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :improvement2 %>
-    <%= f.number_field :improvement2 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :unit2 %>
-    <%= f.text_field :unit2 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :metric2 %>
-    <%= f.text_field :metric2 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :improvement3 %>
-    <%= f.number_field :improvement3 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :unit3 %>
-    <%= f.text_field :unit3 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :metric3 %>
-    <%= f.text_field :metric3 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :component_id %>
-    <%= f.text_field :component_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>

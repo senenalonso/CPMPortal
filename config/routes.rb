@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 	get 	'/',					to: 'site#home',	as: :home 
 
 	get 	'/projects/:id/assign',					to: 'projects#assign',	as: :assign_project 
+	get 	'/projects/:id/close',					to: 'projects#close',	as: :close_project 
 	
 end

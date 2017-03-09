@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :assign]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :assign, :close]
 
   # GET /projects
   # GET /projects.json
@@ -72,9 +72,15 @@ class ProjectsController < ApplicationController
   end
 
   def assign
-    binding.pry
+    @project.status="En curso"
     current_user.projects.push(@project)
     redirect_to edit_project_path(@project), notice: 'Project was successfully assigned.'
+  end
+
+  def close
+    @project.status="Cerrado"
+    @project.save
+    redirect_to home_path, notice: 'Project was successfully closed.'
   end
 
   private

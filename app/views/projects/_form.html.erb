@@ -116,8 +116,14 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3 col-md-offset-2">
-    <%= f.submit "Guardar proyecto", class: 'btn btn-lg btn-success btn-block'  %>
+  <div class="col-md-5 col-md-offset-2">
+    <%= f.submit "Guardar proyecto", class: 'btn btn-lg btn-success'  %>
+    <% if @project.users.size==0 %>
+      <button type="button" class="btn btn-lg btn-primary" onclick="location.href='/projects/<%=@project.id%>/assign'"">Asignar</button>
+    <%end%>
+    <% if @project.status=="En curso" %>
+      <button type="button" class="btn btn-lg btn-primary" onclick="location.href='/projects/<%=@project.id%>/close'"">Cerrar</button>
+    <%end%>
   </div>
 </div>
 <% end %>

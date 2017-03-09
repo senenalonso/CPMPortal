@@ -92,7 +92,7 @@ def populate
 																 y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las 
 																 industrias desde el año 1500",
 																 scope: "Distribuido",
-																 category: "Prueba",
+																 category: "Optimización",
 																 status: "Sin asignar"
 																 )
 		end

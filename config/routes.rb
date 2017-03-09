@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 	root to: "site#home"
 	
 	get 	'/',					to: 'site#home',	as: :home 
+
+	get 	'/projects/:id/assign',					to: 'projects#assign',	as: :assign_project 
 	
 end

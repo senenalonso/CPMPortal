@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+<%=f.hidden_field :component_id, value: component%>
 <div class="container">
   <div class="row">
     <div class="col-md-11 col-pad-bot-5">
@@ -79,5 +80,9 @@
       </div>
     </div>
   </div>
+</div>
+<div class="modal-footer">                        
+  <%= f.submit "Guardar recomendacíón", class: 'btn btn-success'  %>
+  <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
 </div>
 <% end %>

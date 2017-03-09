@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :assign]
 
   # GET /projects
   # GET /projects.json
@@ -20,7 +20,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     session[:project_id] = params[:id]
-    @components = @project.components    
+    @components = @project.components 
+    @advices = @components.map {|c| c.advices}.select {|a,index| a}
     @component = Component.new  
     @advice = Advice.new
   end
@@ -68,6 +69,12 @@ class ProjectsController < ApplicationController
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def assign
+    binding.pry
+    current_user.projects.push(@project)
+    redirect_to edit_project_path(@project), notice: 'Project was successfully assigned.'
   end
 
   private

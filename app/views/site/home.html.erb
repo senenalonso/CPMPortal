@@ -146,12 +146,12 @@
             </div>
             <!-- .panel-heading -->
             <div class="panel-body">
-                <div class="panel-group" id="accordion">
+                <div class="panel-group" id="accordion2">
                     <%@info_projects["opts"].each do |p, index| %>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title inline-h4">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=p.id%>"><%=p.name%></a>
+                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse<%=p.id%>"><%=p.name%></a>
                             </h4>
                             <div class="pull-right">
                                 <div class="btn-group">
@@ -188,12 +188,12 @@
             </div>
             <!-- .panel-heading -->
             <div class="panel-body">
-                <div class="panel-group" id="accordion">
+                <div class="panel-group" id="accordion3">
                     <%@info_projects["free"].each do |p, index| %>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title inline-h4">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%=p.id%>"><%=p.name%></a>
+                                <a data-toggle="collapse" data-parent="#accordion3" href="#collapse<%=p.id%>"><%=p.name%></a>
                             </h4>
                             <div class="pull-right">
                                 <div class="btn-group">
@@ -204,7 +204,7 @@
                                     <ul class="dropdown-menu pull-right" role="menu">
                                         <li><a href="/projects/<%=p.id%>/edit">Editar/Ver detalles</a>
                                         </li>
-                                        <li><a href="/projects/<%=p.id%>/assing">Asignar</a>
+                                        <li><a href="/projects/<%=p.id%>/assign">Asignar</a>
                                         </li>
                                     </ul>
                                 </div>

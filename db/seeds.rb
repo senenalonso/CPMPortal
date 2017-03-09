@@ -39,12 +39,35 @@ def populate
 																 status: "En curso"
 																 )
 
+			3.times do |index3|
+				componente = project_opt.components.create(name: "Componente #{index}#{index2}#{index3}",
+																						description: "Descripción del componente #{index}#{index2}#{index3}",
+																						category: "JCL"
+																						)
+				3.times do |index4|
+					advice = componente.advices.create(problem: "Problema  #{index}#{index2}#{index3}#{index4}",
+																			explanation: "Explicación  #{index}#{index2}#{index3}#{index4}" ,
+																			before: "Código antes  #{index}#{index2}#{index3}#{index4}" ,
+																			after: "Código después  #{index}#{index2}#{index3}#{index4}",
+																			improvement1: "50",
+																			unit1: "%",
+																			metric1: "CPU"
+																			)
+				advice.save
+				end
+
+				componente.save
+			end
+
+
+
 			if index2.odd?
 				project_test.status = "Cerrado"
 				project_opt.status = "Cerrado"
 				project_test.save
 				project_opt.save
 			end
+
 		end
 	end
 

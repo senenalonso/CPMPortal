@@ -25,13 +25,14 @@ class AdvicesController < ApplicationController
   # POST /advices.json
   def create
     @advice = Advice.new(advice_params)
+    project = Project.find(session[:project_id])
 
     respond_to do |format|
       if @advice.save
-        format.html { redirect_to @advice, notice: 'Advice was successfully created.' }
+        format.html { redirect_to edit_project_path(project), notice: 'Advice was successfully created.' }
         format.json { render :show, status: :created, location: @advice }
       else
-        format.html { render :new }
+        format.html { redirect_to edit_project_path(project), notice: 'Error!!' }
         format.json { render json: @advice.errors, status: :unprocessable_entity }
       end
     end

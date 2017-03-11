@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   before_action :set_project, only: [:show, :edit, :update, :destroy, :assign, :close]
 
   # GET /projects
@@ -81,6 +82,12 @@ class ProjectsController < ApplicationController
     @project.status="Cerrado"
     @project.save
     redirect_to home_path, notice: 'Project was successfully closed.'
+  end
+
+  def search
+    if request.method == "POST" 
+      binding.pry
+    end
   end
 
   private

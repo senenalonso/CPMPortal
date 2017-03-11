@@ -29,18 +29,39 @@ class Project < ApplicationRecord
 		tests = user_projects.all.select {|p| !p.status.include? "Cerrado" }.select {|p| p.category.include? "Prueba"}
 		opts = user_projects.all.select {|p| !p.status.include? "Cerrado" }.select {|p| p.category.include? "Optimización"}
 
-=begin
-		old = counters.keys.select {|k| k.include? "Cerrado" }.map { |k| counters[k] }.sum
-
-		test = counters.keys.select {|k| !k.include? "Cerrado" }.select {|k| k.include? "Prueba"}.map { |k| counters[k] }.sum
-
-		opt = counters.keys.select {|k| !k.include? "Cerrado" }.select {|k| k.include? "Optimización" }.map { |k| counters[k] }.sum
-=end
-		free = Project.where(status:"Sin asignar")
-
-		projects_info = Hash["test_count" => test, "opt_count" => opt, "free_count" => free.count, "old_count" => old, "tests" => tests, "opts" => opts, "free" => free]
+		projects_info = Hash["test_count" => test, 
+												"opt_count" => opt, 
+												"unassigned_count" => unassigned.count, 
+												"old_count" => old, 
+												"tests" => tests, 
+												"opts" => opts, 
+												"unassigned" => unassigned
+											]
 
 		projects_info
+	end
+
+
+
+	def self.get_project_info_global()
+
+		counters_assigned = Project.where(status:"En curso").group([:category]).count
+
+		counters_unassigned = unassigned.group([:category]).count
+
+		projects_info_global = Hash["test_count" => counters_assigned["Prueba"], 
+																"opt_count" => counters_assigned["Optimización"], 
+																"unassigned_test_count" => counters_unassigned["Prueba"], 
+																"unassigned_opt_count" => counters_unassigned["Optimización"]
+															]
+															
+		projects_info_global
+	end
+
+	private 
+
+	def self.unassigned
+		Project.where(status:"Sin asignar")
 	end
 
 end

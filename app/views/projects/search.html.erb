@@ -1,0 +1,110 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Búsqueda de proyecto</h1>
+    </div>
+</div> 
+<div class="container">
+<form class="form-horizontal" action="/projects/search" method="POST">
+  <div class="row">
+    <div class="col-md-10 col-pad-bot-5 form-group">
+     		<label class="col-md-2 control-label" for="code">Código:</label>  
+        <div class="form-group input-group col-md-6">
+            <span class="input-group-addon">CO</span>
+            <input name="code" type="text" class="form-control input-md">
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-pad-bot-5">
+      <div class="form-group inline-flex">
+        <label class="col-md-2 control-label" for="date_requested">F. de petición:</label>
+        <div class='input-group date col-md-2' id='datetimepicker1'> 
+        	<input name="date_requested" type="text"  class="form-control input-md">  
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar fa-1x"></span>
+          </span>
+        </div>
+        <label class="col-md-2 control-label" for="date_start">F. de inicio:</label>
+        <div class='input-group date col-md-2' id='datetimepicker2'>
+        	<input name="date_start" type="text"  class="form-control input-md"> 
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+                  format: "DD/MM/YYYY"
+                });           
+                $('#datetimepicker2').datetimepicker({
+                  format: 'DD/MM/YYYY'
+                });
+            });
+        </script>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-pad-bot-5">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="result">Estado:</label>
+        <div class="col-md-6">
+			    <select name="status" class="form-control">
+			      <option value=""></option>
+			      <option value="Sin asignar">Sin asignar</option>
+			      <option value="En curso">En curso</option>
+			      <option value="Cerrado">Cerrado</option>
+			    </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-pad-bot-5">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="result">Ámbito:</label>
+        <div class="col-md-6">
+			    <select name="scope" class="form-control">
+			      <option value=""></option>
+			      <option value="Sistemas Distribuidos">Sistemas Distribuidos</option>
+			      <option value="Mainframe">Mainframe</option>
+			      <option value="Mixto">Mixto</option>
+			    </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-pad-bot-5">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="result">Categoría:</label>
+        <div class="col-md-6">
+			    <select name="category" class="form-control">
+			      <option value=""></option>
+			      <option value="Prueba">Prueba de rendimiento</option>
+			      <option value="Mainframe">Optimización</option>
+			    </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-pad-bot-5">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="result">Resultado:</label>
+        <div class="col-md-6">
+			    <select name="result" class="form-control">
+			      <option value=""></option>
+			      <option value="Aceptado">Aceptado</option>
+			      <option value="Aceptado con riesgo">Aceptado con riesgo</option>
+			      <option value="Rechazado">Rechazado</option>
+			      <option value="No aplica">No aplica</option>
+			    </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-md-offset-3">
+      <button type="submit" class="btn btn-lg btn-primary">Buscar</button>
+  </div>
+</div>

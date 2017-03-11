@@ -89,11 +89,27 @@
 															<h4 class="panel-title inline-h4">
 																<a data-toggle="collapse" data-parent="#accordionAdv" href="#collapseAdv<%=a.id%>" onclick="$('#components').toggleClass('hidden')"><%=a.problem%></a>
 															</h4>
+															<div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Opciones
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="/advices/<%=a.id%>/edit">Editar/Ver detalles</a>
+                                        </li>
+                                        <li><a href="/advices/<%=a.id%>/flow">Flujo de trabajo</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
 														</div>
 														<div id="collapseAdv<%=a.id%>" class="panel-collapse collapse">
 															<div class="panel-body">
-																<h4>Problema: <%=a.problem%></h4>
-																<h4>Explicación: <%=a.explanation%></h4>
+																<h4><b>Problema:</b> <%=a.problem%></h4>
+																<h4><b>Explicación:</b> <%=a.explanation%></h4>
+																<h4><b>Código ANTES:</b> <%=a.before%></h4>
+																<h4><b>Código Después:</b> <%=a.after%></h4>
 															</div>
 														</div>
 													</div>

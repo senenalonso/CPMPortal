@@ -12,6 +12,7 @@
       <th>Date requested</th>
       <th>Date start</th>
       <th>Date finish</th>
+      <th>Status</th>
       <th>Scope</th>
       <th>Category</th>
       <th>Priority</th>
@@ -29,6 +30,7 @@
         <td><%= project.date_requested %></td>
         <td><%= project.date_start %></td>
         <td><%= project.date_finish %></td>
+        <td><%= project.status %></td>
         <td><%= project.scope %></td>
         <td><%= project.category %></td>
         <td><%= project.priority %></td>
@@ -41,5 +43,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Project', new_project_path %>

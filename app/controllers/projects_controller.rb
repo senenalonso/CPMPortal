@@ -86,7 +86,25 @@ class ProjectsController < ApplicationController
 
   def search
     if request.method == "POST" 
-      binding.pry
+      filter = ""
+      more_than_one = false
+      params.each do |p, v| 
+        if (v != "" && p != "controller" && p != "action")
+          if (more_than_one) 
+            filter += " AND "
+          else 
+            more_than_one = true
+          end
+          if p=="code"
+            filter += "#{p} = 'CO#{v}'"
+          else 
+            filter += "#{p} = '#{v}'"
+          end
+        end
+      end
+      @projects = Project.where(filter)
+
+      render 'projects/index'
     end
   end
 

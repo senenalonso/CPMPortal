@@ -1,45 +1,45 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Projects</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Result</th>
-      <th>Date requested</th>
-      <th>Date start</th>
-      <th>Date finish</th>
-      <th>Status</th>
-      <th>Scope</th>
-      <th>Category</th>
-      <th>Priority</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.code %></td>
-        <td><%= project.name %></td>
-        <td><%= project.description %></td>
-        <td><%= project.result %></td>
-        <td><%= project.date_requested %></td>
-        <td><%= project.date_start %></td>
-        <td><%= project.date_finish %></td>
-        <td><%= project.status %></td>
-        <td><%= project.scope %></td>
-        <td><%= project.category %></td>
-        <td><%= project.priority %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Resultado de la búsqueda:</h1>
+    </div>
+</div> 
+<div class="row">
+  <div class="col-md-12 pad-top-10">
+    <div class="panel">
+      <div class="panel-body">
+          <div class="panel-group" id="accordion2">
+              <%@projects.each do |p, index| %>
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h4 class="panel-title inline-h4">
+                          <a data-toggle="collapse" data-parent="#accordion2" href="#collapse<%=p.id%>"><%=p.name%></a>
+                      </h4>
+                      <div class="pull-right">
+                          <div class="btn-group">
+                              <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                  Opciones
+                                  <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu pull-right" role="menu">
+                                  <li><a href="/projects/<%=p.id%>/edit">Editar/Ver detalles</a>
+                                  </li>
+                                  <li><a href="/projects/<%=p.id%>/report">Ver informe</a>
+                                  </li>
+                                  <li><a href="/projects/<%=p.id%>/flow">Flujo de trabajo</a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                  <div id="collapse<%=p.id%>" class="panel-collapse collapse">
+                      <div class="panel-body">
+                          <%=p.description%>
+                      </div>
+                  </div>
+              </div>
+              <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :assign, :close]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :assign, :close, :report]
 
   # GET /projects
   # GET /projects.json
@@ -102,10 +102,15 @@ class ProjectsController < ApplicationController
           end
         end
       end
-      @projects = Project.where(filter)
+
+      @projects = Project.get_projects_by_filter(filter)
 
       render 'projects/index'
     end
+  end
+
+  def report
+    render 'report', layout: 'pdf'
   end
 
   private

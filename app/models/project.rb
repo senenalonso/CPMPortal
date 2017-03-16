@@ -58,6 +58,10 @@ class Project < ApplicationRecord
 		projects_info_global
 	end
 
+	def self.get_projects_by_filter(filter)
+		Project.where(filter)		
+	end
+
 	private 
 
 	def self.unassigned

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 	get 	'/projects/:id/close',					to: 'projects#close',	as: :close_project 
 	get 	'/projects/search',							to: 'projects#search',	as: :search_project 
 	post 	'/projects/search',							to: 'projects#search'
+	get 	'/projects/:id/report',					to: 'projects#report',	as: :report_project 
 
   resources :projects
   resources :advices

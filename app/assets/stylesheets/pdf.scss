@@ -1,12 +1,81 @@
 body {
-	color:#556622;
+	color:#222222;
+	font-family: arial;
+	font-size: 14px;
 }
 
-#header {
+.title {
 	color:#6699AA;
+	font-size: 80px;
 }
 
-.span-page-header {
-	height: 400px;
-	background-image: url("index.png");
+.improvement {
+	color:#093;
+	font-size: 20px;	
+  font-weight: bold;
 }
+
+.logo {
+	height: 500px;
+	background-image: url("e2e.png");
+	background-size: 300px 200px;
+	background-repeat: no-repeat;
+  background-position: top right; 
+  }
+
+h1 {
+	color:#6699AA;
+	font-size: 40px;
+	font-style: normal;
+	font-weight: 800;
+}
+
+h2 {
+	color:#6699AA;
+	font-size: 30px;
+	font-style: italic;
+	font-weight: 600;
+}
+
+h3 {
+	color:#6699AA;
+	font-size: 20px;
+	font-style: italic;
+	font-weight: 500;
+}
+
+.headerAdvice {
+	color:#0f336d;
+	font-size: 16px;
+	font-style: italic;
+	font-weight: 400;
+  border-bottom: 1px solid;
+  margin-bottom: 10px;
+  margin-bottom: 10px;  
+}
+
+.contentAdvice {
+  margin-bottom: 10px;
+  margin-bottom: 10px;  
+}
+
+.contentAdviceCode {
+  border: 1px solid;
+  margin-bottom: 10px;
+  margin-bottom: 10px;  
+}
+
+.component {
+	margin-left: 30px;
+}
+.advice {
+	margin-left: 50px;
+}
+
+div.alwaysbreak { page-break-before: always; }
+div.nobreak:before { clear:both; }
+div.nobreak { page-break-inside: avoid; }
+
+ol.index { counter-reset: item }
+LI.index { display: block }
+LI.index:before { content: counters(item, ".") " "; counter-increment: item }

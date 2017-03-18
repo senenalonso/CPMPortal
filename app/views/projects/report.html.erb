@@ -1,10 +1,82 @@
 <div class="row">
-    <div class="col-lg-12">
-        <p class="span-page-header"></span>
-    </div>
+  <div class="col-lg-12">
+    <h1 class="page-header"><%=@project.name%></h1>
+  </div>
 </div>
-<div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">Posicion global del tecnico</h1>
-    </div>
+<div class="row alwaysbreak">
+  <div class="col-lg-12">
+    <h1 class="page-header">Índice</h1>
+  </div>
+	<div class="index">
+		<ol class="index">
+			<li class="index">
+				Alcance
+			</li>
+			<li class="index">
+				Componentes estudiados y recomendaciones
+				<ol class="index">				
+					<%@project.components.each_with_index do |c, index| %>
+					<li class="index">
+						<%=c.name%>
+						<ol class="index">
+							<%c.advices.each do |a| %>												
+								<li class="index">
+									<%=a.short%>
+								</li>
+							<%end%>
+						</ol>
+					</li>
+					<%end%>
+				</ol>
+			</li>
+		</ol>
+	</div>
 </div>
+<div class="row alwaysbreak">
+  <div class="col-lg-12">
+    <h1 class="page-header">1.- Alcance</h1>
+  </div>
+	<div class="content">
+		<p>En este documento se recoge el análisis hecho del la aplicación <%=@project.uuaa%> debido a la petición <%=@project.remedy%> donde se indica que existen problemas de rendimiento en este aplicativo. El análisis se divide en diferentes componentes estudiados y las recomendaciones asociadas a cada uno de estos componentes para mejorar el rendimiento de los mismos. </p>
+	</div>
+</div>
+<div class="row alwaysbreak">
+  <div class="col-lg-12">
+    <h1 class="page-header">2.- Componentes estudiados</h1>
+  </div>
+<%@project.components.each_with_index do |c, index| %>
+	<div class="row nobreak">
+  	<div class="component nobreak">
+			<h2>2.<%=index.to_i+1%> .- <%=c.name%></h2>
+			<p><%=c.description%></p>
+		<div>
+		<%c.advices.each_with_index do |a, index2| %>	
+  	<div class="advice nobreak">  	
+			<h3>2.<%=index.to_i+1%>.<%=index2.to_i+1%> .- <%=a.short%></h3>
+			<div>
+				<div class="headerAdvice">Problemática</div>
+				<div class="contentAdvice"><%=a.problem%></div>
+			</div>										
+			<div>
+				<div class="headerAdvice">Mejora propuesta</div>
+				<div class="contentAdvice"><%=a.explanation%></div>
+			</div>										
+			<div>
+				<div class="headerAdvice">Código ineficiente</div>
+				<div class="contentAdviceCode"><pre><%=a.before%></pre></div>
+			</div>										
+			<div>
+				<div class="headerAdvice">Código optimizado</div>
+				<div class="contentAdviceCode"><pre><%=a.after%></pre></div>
+			</div>								
+			<div>
+				<div class="headerAdvice">Mejora obtenida</div>
+				<div class="improvement"><%=a.improvement1%><%=a.unit1%> a nivel de <%=a.metric1%></div>
+			</div>
+		</div>
+		<%end%>
+	</div>
+	</div>
+<%end%>
+
+

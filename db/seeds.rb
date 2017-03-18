@@ -22,6 +22,8 @@ def populate
 																 description: "Lorem Ipsum es simplemente el texto de relleno de las imprentas 
 																 y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las 
 																 industrias desde el año 1500",
+																 remedy: "REQ00000#{index}#{index2}#{index}#{index2}",
+																 uuaa: "NCQA",
 																 date_requested: Date.parse((Date.today - (5*index2).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
 																 scope: "Distribuido",
 																 category: "Prueba",
@@ -30,10 +32,12 @@ def populate
 
 			project_opt = user.projects.create(code: get_code,
 																 name: "Proyecto Optimización #{index}#{index2}",
-																 date_requested: Date.parse((Date.today - (3*index2).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
 																 description: "Lorem Ipsum es simplemente el texto de relleno de las imprentas 
 																 y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las 
 																 industrias desde el año 1500",
+																 remedy: "REQ00000#{index}#{index2}#{index}#{index2}",
+																 uuaa: "NCQA",
+																 date_requested: Date.parse((Date.today - (3*index2).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
 																 scope: "Distribuido",
 																 category: "Optimización",
 																 status: "En curso"
@@ -45,7 +49,9 @@ def populate
 																						category: "JCL"
 																						)
 				3.times do |index4|
-					advice = componente.advices.create(problem: "Problema  #{index}#{index2}#{index3}#{index4}",
+					advice = componente.advices.create(
+																			short: "Recomendación  #{index}#{index2}#{index3}#{index4}",
+																			problem: "Problema  #{index}#{index2}#{index3}#{index4}",
 																			explanation: "Explicación  #{index}#{index2}#{index3}#{index4}" ,
 																			before: "Código antes  #{index}#{index2}#{index3}#{index4}" ,
 																			after: "Código después  #{index}#{index2}#{index3}#{index4}",
@@ -75,10 +81,12 @@ def populate
 	10.times do |index|
 		Project.create!(code: get_code,
 																 name: "LIBRE Proyecto Pruebas #{index}",
-																 date_requested: Date.parse((Date.today - (5*index).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
 																 description: "Lorem Ipsum es simplemente el texto de relleno de las imprentas 
 																 y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las 
 																 industrias desde el año 1500",
+																 remedy: "REQ0000000#{index}0#{index}",
+																 uuaa: "NCQA",
+																 date_requested: Date.parse((Date.today - (5*index).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
 																 scope: "Distribuido",
 																 category: "Prueba",
 																 status: "Sin asignar"
@@ -87,10 +95,12 @@ def populate
 		if index.odd?
 			Project.create!(code: get_code,
 																 name: "LIBRE Proyecto Optimización #{index}",
-																 date_requested: Date.parse((Date.today - (5*index).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
 																 description: "Lorem Ipsum es simplemente el texto de relleno de las imprentas 
 																 y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las 
 																 industrias desde el año 1500",
+																 remedy: "REQ0000000#{index}#{index}",
+																 uuaa: "NCQA",
+																 date_requested: Date.parse((Date.today - (5*index).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
 																 scope: "Distribuido",
 																 category: "Optimización",
 																 status: "Sin asignar"

@@ -16,11 +16,21 @@
       <div class="form-group">
         <label class="col-md-1 control-label" for="code">Código:</label>  
         <div class="col-md-2">
-          <%= f.text_field :code, placeholder: 'Código', class: 'form-control input-md', disabled:true, required: true %>
+          <%= f.text_field :code, placeholder: 'Autogenerado', class: 'form-control input-md', disabled:true, required: true %>
         </div>
         <label class="col-md-1 control-label" for="code">Nombre:</label>  
-        <div class="col-md-4">
+        <div class="col-md-6">
           <%= f.text_field :name, placeholder: 'Nombre del proyecto', class: 'form-control input-md', required: true %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-11 col-pad-bot-5">
+      <div class="form-group">
+        <label class="col-md-1 control-label" for="code">Remedy:</label>  
+        <div class="col-md-7">
+          <%= f.text_field :remedy, placeholder: 'Petición Remedy', class: 'form-control input-md', required: true %>
         </div>
         <label class="col-md-1 control-label" for="code">Prioridad:</label>  
         <div class="col-md-1">

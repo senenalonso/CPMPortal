@@ -7,7 +7,7 @@
 <form class="form-horizontal" action="/projects/search" method="POST">
   <div class="row">
     <div class="col-md-10 col-pad-bot-5 form-group">
-     		<label class="col-md-2 control-label" for="code">Código:</label>  
+        <label class="col-md-2 control-label" for="code">Código:</label>  
         <div class="form-group input-group col-md-6">
             <span class="input-group-addon">CO</span>
             <input name="code" type="text" class="form-control input-md">
@@ -15,17 +15,26 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-md-10 col-pad-bot-5 form-group">
+        <label class="col-md-2 control-label" for="remedy">Remedy:</label>  
+        <div class="form-group input-group col-md-6">
+            <span class="input-group-addon">REQ</span>
+            <input name="remedy" type="text" class="form-control input-md">
+        </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-10 col-pad-bot-5">
       <div class="form-group inline-flex">
-        <label class="col-md-2 control-label" for="date_requested">F. de petición:</label>
-        <div class='input-group date col-md-2' id='datetimepicker1'> 
+        <label class="col-md-3 control-label" for="date_requested">F. de petición:</label>
+        <div class='input-group date col-md-3' id='datetimepicker1'> 
         	<input name="date_requested" type="text"  class="form-control input-md">  
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar fa-1x"></span>
           </span>
         </div>
         <label class="col-md-2 control-label" for="date_start">F. de inicio:</label>
-        <div class='input-group date col-md-2' id='datetimepicker2'>
+        <div class='input-group date col-md-3' id='datetimepicker2'>
         	<input name="date_start" type="text"  class="form-control input-md"> 
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>

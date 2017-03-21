@@ -1,4 +1,5 @@
 class ComponentsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   before_action :set_component, only: [:show, :edit, :update, :destroy]
 
   # GET /components
@@ -60,6 +61,26 @@ class ComponentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to components_url, notice: 'Component was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def search
+    if request.method == "POST" 
+      filter = ""
+      more_than_one = false
+      params.each do |p, v| 
+        if (v != "" && p != "controller" && p != "action")
+          if (more_than_one) 
+            filter += " AND "
+          else 
+            more_than_one = true
+          end
+        end
+      end
+
+      @components = Component.get_components_by_filter(filter)
+
+      render 'components/index'
     end
   end
 

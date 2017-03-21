@@ -22,7 +22,6 @@ class ProjectsController < ApplicationController
   def edit
     session[:project_id] = params[:id]
     @components = @project.components 
-    @advices = @components.map {|c| c.advices}.select {|a,index| a}
     @component = Component.new  
     @advice = Advice.new
   end
@@ -87,21 +86,13 @@ class ProjectsController < ApplicationController
   def search
     if request.method == "POST" 
       filter = ""
-      more_than_one = false
-      params.each do |p, v| 
-        if (v != "" && p != "controller" && p != "action")
-          if (more_than_one) 
-            filter += " AND "
-          else 
-            more_than_one = true
-          end
-          if p=="code"
-            filter += "#{p} = 'CO#{v}'"
-          else 
-            filter += "#{p} = '#{v}'"
-          end
-        end
+
+      if params[:code] != ""
+        params[:code] = "CO"+params[:code]
       end
+
+      params.delete_if{|k, v| k == "controller" || k == "action" || v == ""}
+      filter = params.map{|k, v| "#{k} = '#{v}'"}.join(" AND ")
 
       @projects = Project.get_projects_by_filter(filter)
 

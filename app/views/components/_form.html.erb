@@ -22,7 +22,10 @@
         <label class="col-md-1 control-label" for="category">Categoria:</label>
         <div class="col-md-4">
           <%= f.select :category, 
-          "<option>Aplicación</option><option>Sentencia SQL</option><option>Procedimiento almacenado</option><option>JCL</option>".html_safe, 
+          "<option value='APP'>Aplicación</option>
+          <option value='SQL'>Sentencia SQL</option>
+          <option value='SP'>Procedimiento almacenado</option>
+          <option value='JCL'>JCL</option>".html_safe, 
           {:prompt => "Seleccionar..."}, {:class => 'form-control'} %>
         </div>
       </div>

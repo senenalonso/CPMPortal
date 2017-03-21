@@ -12,9 +12,17 @@ def self.get_code
 end
 
 def populate
+	user = User.create!(email: "senen@nen.com",
+															password: "123456",
+															name: "Senén",
+															role: 1,															
+															)
+
 	10.times do |index|
 		user = User.create!(email: "a#{index}@nen.com",
-															password: "123456",															
+															password: "123456",
+															name: "a#{index}a#{index}",
+															role: 0,															
 															)
 		3.times do |index2|
 			project_test = user.projects.create(code: get_code,

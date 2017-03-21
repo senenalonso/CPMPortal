@@ -15,7 +15,19 @@
   <div class="row">
     <div class="col-md-11 col-pad-bot-5">
       <div class="form-group">
-        <label class="col-md-1 control-label" for="problem">Mala práctica:</label>  
+        <label class="col-md-1 control-label" for="problem">Resumen:</label>  
+        <div class="col-md-9">
+          <%= f.text_field :short, class: 'form-control'%>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-11 col-pad-bot-5">
+      <div class="form-group">
+        <label class="col-md-1 control-label" for="problem">Problema detectado:</label>  
         <div class="col-md-9">
           <%= f.text_area :problem, class: 'form-control', rows: 3  %>  
         </div>
@@ -27,7 +39,7 @@
   <div class="row">
     <div class="col-md-11 col-pad-bot-5">
       <div class="form-group">
-        <label class="col-md-1 control-label" for="after">Corrección:</label>  
+        <label class="col-md-1 control-label" for="after">Modificación propuesta:</label>  
         <div class="col-md-9">
           <%= f.text_area :explanation, class: 'form-control', rows: 3  %>  
         </div>
@@ -39,7 +51,7 @@
   <div class="row">
     <div class="col-md-11 col-pad-bot-5">
       <div class="form-group">
-        <label class="col-md-1 control-label" for="before">Antes:</label>  
+        <label class="col-md-1 control-label" for="before">Código ineficiente:</label>  
         <div class="col-md-9">
           <%= f.text_area :before, class: 'form-control', rows: 3  %>  
         </div>
@@ -51,7 +63,7 @@
   <div class="row">
     <div class="col-md-11 col-pad-bot-5">
       <div class="form-group">
-        <label class="col-md-1 control-label" for="after">Después:</label>  
+        <label class="col-md-1 control-label" for="after">Código optimizado:</label>  
         <div class="col-md-9">
           <%= f.text_area :after, class: 'form-control', rows: 3  %>  
         </div>
@@ -64,15 +76,15 @@
     <div class="col-md-12 col-pad-bot-5">
       <div class="form-group inline-flex">
         <label class="col-md-2 control-label" for="metric1">Métrica:</label>
-        <div class="input-group col-md-3">
+        <div class="input-group col-md-2">
           <%= f.text_field :metric1, class: 'form-control input-md'%>                   
         </div>
         <label class="col-md-2 control-label" for="improvement1">Mejora:</label>
-        <div class="input-group col-md-3">
+        <div class="input-group col-md-2">
           <%= f.text_field :improvement1, class: 'form-control input-md'%>                   
         </div>
         <label class="col-md-2 control-label" for="unit1">Unidad:</label>
-        <div class="input-group col-md-3">        
+        <div class="input-group col-md-2">        
           <%= f.select :unit1, 
           "<option>%</option><option>msg.</option><option>u.c.</option>".html_safe, 
           {:prompt => "Seleccionar..."}, {:class => 'form-control'} %>               

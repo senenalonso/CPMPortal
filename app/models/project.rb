@@ -6,7 +6,7 @@ class Project < ApplicationRecord
 	validates :scope, :presence => true
 	validates :category, :presence => true
 
-	def self.get_project_info_by_user(user)
+	def self.get_projects_info_by_user(user)
 
 		user_projects	= user.projects
 
@@ -31,6 +31,26 @@ class Project < ApplicationRecord
 
 		projects_info = Hash["test_count" => test, 
 												"opt_count" => opt, 
+												"unassigned_count" => unassigned.count, 
+												"old_count" => old, 
+												"tests" => tests, 
+												"opts" => opts, 
+												"unassigned" => unassigned
+											]
+
+		projects_info
+	end
+
+		def self.get_project_info_by_user(user)
+
+		user_projects	= user.projects
+
+		old = user_projects.where(status: "Cerrado").count
+		tests = user_projects.all.select {|p| !p.status.include?("Cerrado") && p.category.include?("Prueba")}
+		opts = user_projects.all.select {|p| !p.status.include?("Cerrado") && p.category.include?("Optimización")}
+
+		projects_info = Hash["test_count" => tests.count, 
+												"opt_count" => opts.count, 
 												"unassigned_count" => unassigned.count, 
 												"old_count" => old, 
 												"tests" => tests, 

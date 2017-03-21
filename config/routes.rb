@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 	get 	'/projects/search',							to: 'projects#search',	as: :search_project 
 	post 	'/projects/search',							to: 'projects#search'
 	get 	'/projects/:id/report',					to: 'projects#report',	as: :report_project 
+	get 	'/components/search',						to: 'components#search',	as: :search_component 
+	post 	'/components/search',						to: 'components#search'
 
   resources :projects
   resources :advices

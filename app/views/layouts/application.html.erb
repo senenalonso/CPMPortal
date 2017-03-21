@@ -9,17 +9,17 @@
 </head>
 
 <body>
-
-
 	<div id="wrapper">
-
-		<!-- Navigation -->
 		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/">OCTA - Performance Management Portal</a>
-			</div>
-			<!-- /.navbar-header -->
-
+			</div>		
+	<%if !current_user %>				
+		</nav>			
+		<div id="page-wrapper">
+				<%= yield %>
+		</div>
+	<%else%>
 			<ul class="nav navbar-top-links navbar-right">
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -34,12 +34,8 @@
 						<li><%= link_to ' Logout', destroy_user_session_path, method: 'DELETE', class: 'fa fa-sign-out fa-fw' %>
 						</li>
 					</ul>
-					<!-- /.dropdown-user -->
 				</li>
-				<!-- /.dropdown -->
 			</ul>
-			<!-- /.navbar-top-links -->
-
 			<div class="navbar-default sidebar" role="navigation">
 				<div class="sidebar-nav navbar-collapse">
 					<ul class="nav" id="side-menu">
@@ -56,19 +52,18 @@
 									<a href="/projects/search">Búsqueda</a>
 								</li>
 							</ul>
-							<!-- /.nav-second-level -->
 						</li>
 						<li>
-							<a href="tables.html"><i class="fa fa-table fa-fw"></i> Componentes</a>
+							<a href="/components/search"><i class="fa fa-table fa-fw"></i> Componentes</a>
 						</li>
 						<li>
-							<a href="forms.html"><i class="fa fa-list-ol fa-fw"></i> Recomendaciones<span class="fa arrow"></span></a>
+							<a href="#"><i class="fa fa-list-ol fa-fw"></i> Recomendaciones<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
 								<li>
-									<a href="panels-wells.html">Emitidas</a>
+									<a href="#">Emitidas</a>
 								</li>
 								<li>
-									<a href="#">Pendientes</a>
+									<a href="#"><i class="fa fa-list-ol fa-fw"></i> Pendientes<span class="fa arrow"></span></a>
 									<ul class="nav nav-third-level">
 										<li>
 											<a href="#">De implantar</a>
@@ -77,25 +72,22 @@
 											<a href="#">De medir mejoras</a>
 										</li>
 									</ul>
-									<!-- /.nav-third-level -->
 								</li>
 							</ul>
 						</li>
-						<li>
-							<a href="#"><i class="fa fa-file fa-fw"></i> Informes</a>
-						</li>
+						<%if current_user && current_user.admin?%>
 						<li>
 							<a href="#"><i class="fa fa-signal fa-fw"></i> Estadísticas</a>
 						</li>
+						<%end%>
 					</ul>
 				</div>
-				<!-- /.sidebar-collapse -->
 			</div>
-			<!-- /.navbar-static-side -->
 		</nav>
-	</div>
-	<div id="page-wrapper">
-			<%= yield %>
+		<div id="page-wrapper">
+				<%= yield %>
+		</div>	
+	<%end%>
 	</div>
 </body>
 </html>

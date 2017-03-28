@@ -24,6 +24,16 @@
 	}
 }
 
+.panel-old {
+	background-color: #d9534f;
+	color: white;
+
+	.panel-body {
+		background-color: white;
+		color: #333;
+	}
+}
+
 .panel-history {
 	background-color: #f0ad4e;
 	color: white;
@@ -53,3 +63,5 @@
 .inline-flex {
 	display: inline-flex;
 }
+
+.bar { fill: steelblue; }

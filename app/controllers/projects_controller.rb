@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  include SearchHelper
+  
   skip_before_filter :verify_authenticity_token
   before_action :set_project, only: [:show, :edit, :update, :destroy, :assign, :close, :report]
 
@@ -28,13 +30,7 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   # POST /projects.json
-  def create
-
-    last_id = Project.last.id+1
-    new_id = sprintf '%04d', last_id
-
-    @project = Project.new(project_params)
-    @project.code = "CO"+new_id
+  def create    
 
     respond_to do |format|
       if @project.save
@@ -91,8 +87,7 @@ class ProjectsController < ApplicationController
         params[:code] = "CO"+params[:code]
       end
 
-      params.delete_if{|k, v| k == "controller" || k == "action" || v == ""}
-      filter = params.map{|k, v| "#{k} = '#{v}'"}.join(" AND ")
+      filter = build_filter(params)
 
       @projects = Project.get_projects_by_filter(filter)
 

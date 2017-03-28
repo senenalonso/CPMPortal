@@ -18,13 +18,6 @@
                     </div>
                 </div>
             </div>
-            <a href="#pruebas">
-                <div class="panel-footer">
-                    <span class="pull-left">Ver detalles</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
         </div>
     </div>
     <div class="col-lg-3 col-md-6">
@@ -40,13 +33,6 @@
                     </div>
                 </div>
             </div>
-            <a href="#optimizaciones">
-                <div class="panel-footer">
-                    <span class="pull-left">Ver detalles</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
         </div>
     </div>
     <div class="col-lg-3 col-md-6">
@@ -62,13 +48,6 @@
                     </div>
                 </div>
             </div>
-            <a href="#libres">
-                <div class="panel-footer">
-                    <span class="pull-left">Ver detalles</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
         </div>
     </div>
     <div class="col-lg-3 col-md-6">
@@ -84,24 +63,18 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">Ver detalle</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-6 col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <a name="pruebas">Pruebas asignadas al usuario</a>
+                <a name="libres">Pruebas asignadas al usuario</a>
             </div>
             <div class="panel-body">
                 <div class="panel-group" id="accordion">
+                    <% if @info_projects["tests"].size>0 %>
                     <%@info_projects["tests"].each do |p, index| %>
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -130,54 +103,80 @@
                         </div>
                     </div>
                     <% end %>
+                    <% else %>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title inline-h4">
+                                    No hay proyectos asignados
+                                </h4>
+                            </div>
+                        </div>
+                    <% end %>   
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-lg-6 col-md-6">
         <div class="panel panel-opt">
             <div class="panel-heading">
-                <a name="optimizaciones">Optmizaciones asignadas al usuario></a>
+                <a name="libres">Optmizaciones asignadas al usuario</a>
             </div>
             <div class="panel-body">
                 <div class="panel-group" id="accordion2">
-                    <%@info_projects["opts"].each do |p, index| %>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title inline-h4">
-                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse<%=p.id%>"><%=p.name%></a>
-                            </h4>
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Opciones
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="/projects/<%=p.id%>/edit">Editar/Ver detalles</a>
-                                        </li>
-                                        <li><a href="/projects/<%=p.id%>/report.pdf">Ver informe</a>
-                                        </li>
-                                        <li><a href="/projects/<%=p.id%>/flow">Flujo de trabajo</a>
-                                        </li>
-                                    </ul>
+                    <% if @info_projects["opts"].size>0 %>
+                        <%@info_projects["opts"].each do |p, index| %>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title inline-h4">
+                                    <a data-toggle="collapse" data-parent="#accordion2" href="#collapse<%=p.id%>"><%=p.name%></a>
+                                </h4>
+                                <div class="pull-right">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                            Opciones
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu pull-right" role="menu">
+                                            <li><a href="/projects/<%=p.id%>/edit">Editar/Ver detalles</a>
+                                            </li>
+                                            <li><a href="/projects/<%=p.id%>/report.pdf">Ver informe</a>
+                                            </li>
+                                            <li><a href="/projects/<%=p.id%>/flow">Flujo de trabajo</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="collapse<%=p.id%>" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <%=p.description%>
+                            <div id="collapse<%=p.id%>" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <%=p.description%>
+                                </div>
+                            </div>
+                        </div> 
+                        <% end %>
+                    <% else %>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title inline-h4">
+                                    No hay proyectos asignados
+                                </h4>
                             </div>
                         </div>
-                    </div>
-                    <% end %>
+                    <% end %>                    
                 </div>
             </div>
         </div>
+    </div>
+</div> 
+<div class="row">
+    <div class="col-lg-6 col-md-6">
         <div class="panel panel-history">
             <div class="panel-heading">
                 <a name="libres">Proyectos sin asignar</a>
             </div>
             <div class="panel-body">
                 <div class="panel-group" id="accordion3">
+                    <% if @info_projects["unassigned"].size>0 %>
                     <%@info_projects["unassigned"].each do |p, index| %>
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -205,64 +204,67 @@
                             </div>
                         </div>
                     </div>
-                    <% end %>
+                        <% end %>
+                    <% else %>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title inline-h4">
+                                    No hay proyectos sin asignar
+                                </h4>
+                            </div>
+                        </div>
+                    <% end %>   
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-4">
-        <div class="panel panel-default">
+    <div class="col-lg-6 col-md-6">
+        <div class="panel panel-old">
             <div class="panel-heading">
-                <i class="fa fa-bar-chart-o fa-fw"></i> Distribución global
+                <a name="libres">Proyectos terminados</a>
             </div>
             <div class="panel-body">
-                <div id="morris-donut-chart"></div>
+                <div class="panel-group" id="accordion4">
+                    <% if @info_projects["old"].size>0 %>
+                    <%@info_projects["old"].each do |p, index| %>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title inline-h4">
+                                <a data-toggle="collapse" data-parent="#accordion3" href="#collapse<%=p.id%>"><%=p.name%></a>
+                            </h4>
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Opciones
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="/projects/<%=p.id%>/edit">Ver detalles</a>
+                                        </li>
+                                        <li><a href="/projects/<%=p.id%>/report.pdf">Ver informe</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapse<%=p.id%>" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <%=p.description%>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                    <% else %>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title inline-h4">
+                                    No hay proyectos cerrados
+                                </h4>
+                            </div>
+                        </div>
+                    <% end %>   
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-$(function(){
-    Morris.Donut({
-        element: 'morris-donut-chart',
-        data: [{
-            label: "Pruebas asignadas",
-            value: <%=@info_projects_global["test_count"]%>
-        }, {
-            label: "Optimizaciones asignadas",
-            value: <%=@info_projects_global["opt_count"]%>
-        }, {
-            label: "Optimizaciones sin asignar",
-            value: <%=@info_projects_global["unassigned_opt_count"]%>
-        }, {
-            label: "Pruebas sin asignar",
-            value: <%=@info_projects_global["unassigned_test_count"]%>
-        }],
-        colors: [
-                "#337ab7",
-                "#5cb85c",
-                "#295429",
-                "#00004d"
-        ],
-        resize: true
-    });
-}); 
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

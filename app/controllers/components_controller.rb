@@ -1,4 +1,6 @@
 class ComponentsController < ApplicationController
+  include SearchHelper
+
   skip_before_filter :verify_authenticity_token
   before_action :set_component, only: [:show, :edit, :update, :destroy]
 
@@ -66,17 +68,8 @@ class ComponentsController < ApplicationController
 
   def search
     if request.method == "POST" 
-      filter = ""
-      more_than_one = false
-      params.each do |p, v| 
-        if (v != "" && p != "controller" && p != "action")
-          if (more_than_one) 
-            filter += " AND "
-          else 
-            more_than_one = true
-          end
-        end
-      end
+
+      filter = build_filter(params)
 
       @components = Component.get_components_by_filter(filter)
 

@@ -38,7 +38,7 @@ class Project < ApplicationRecord
 			tests = user_projects.all.select {|p| !p.status.include?("Cerrado") && p.category.include?("Prueba")}
 			opts = user_projects.all.select {|p| !p.status.include?("Cerrado") && p.category.include?("Optimización")}
 
-			user_data = {"name": u.name,"Optimizaciones": opts.count,"Pruebas": tests.count}
+			user_data = {"label": u.name,"Optimizaciones": opts.count,"Pruebas": tests.count}
 
 			user_data
 

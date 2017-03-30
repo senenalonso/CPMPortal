@@ -18,6 +18,19 @@ def populate
 															role: 1,															
 															)
 
+	user.projects.create(code: "CO0001",
+																 name: "Proyecto Pruebas SENEN",
+																 description: "Lorem Ipsum es simplemente el texto de relleno de las imprentas 
+																 y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las 
+																 industrias desde el año 1500",
+																 remedy: "REQ000000000000",
+																 uuaa: "NCQA",
+																 date_requested: Date.parse((Date.today - (5*index2).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
+																 scope: "Distribuido",
+																 category: "Prueba",
+																 status: "En curso"
+																 )
+
 	10.times do |index|
 		user = User.create!(email: "a#{index}@nen.com",
 															password: "123456",

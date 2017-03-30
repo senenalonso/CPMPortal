@@ -2,7 +2,7 @@ class Project < ApplicationRecord
 	has_and_belongs_to_many :users
 	has_many :components
 
-	before_save :set_code
+	
 
 	validates :name, :presence => true
 	validates :date_requested, :presence => true

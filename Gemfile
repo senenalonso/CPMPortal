@@ -55,3 +55,4 @@ gem 'postgresql'
 gem 'font-awesome-sass'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
+gem 'rails_12factor', group: :production

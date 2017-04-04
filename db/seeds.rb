@@ -12,6 +12,12 @@ def self.get_code
 end
 
 def populate
+	
+	Advice.destroy_all
+	Component.destroy_all
+	Project.destroy_all
+	User.destroy_all
+
 	user = User.create!(email: "senen@nen.com",
 															password: "123456",
 															name: "Senén",

@@ -25,7 +25,7 @@ def populate
 																 industrias desde el año 1500",
 																 remedy: "REQ000000000000",
 																 uuaa: "NCQA",
-																 date_requested: Date.parse((Date.today - (5*index2).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
+																 date_requested: Date.parse((Date.today - (5*2).day).to_s).strftime("%d-%m-%Y").gsub('-', '/'),
 																 scope: "Distribuido",
 																 category: "Prueba",
 																 status: "En curso"
